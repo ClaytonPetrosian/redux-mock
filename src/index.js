@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore,applyMiddleWare } from './redux-mock'
-import thunk from 'redux-thunk'
+import thunk from './redux-thunk-mock'
 import { counter } from './index.redux'
 import  Provider  from './react-redux-mock';
 import App from './App'

@@ -1,8 +1,16 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore,applyMiddleWare } from './redux-mock'
+import thunk from 'redux-thunk'
+import { counter } from './index.redux'
+import  Provider  from './react-redux-mock';
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const store = createStore(counter,applyMiddleWare(thunk))
+ReactDOM.render(
+  (
+    <Provider store={store}>
+      <App />
+    </Provider>
+  ),
+  document.getElementById('root'))

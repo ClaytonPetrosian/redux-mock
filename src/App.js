@@ -1,21 +1,24 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import {connect } from './react-redux-mock'
+import PropTypes from 'prop-types'
+import { addGun, removeGun, addGunAsync } from './index.redux'
 
-class App extends Component {
-  render() {
+// 装饰器模式
+@connect(
+  state=>({ num: state}),
+  {addGun, removeGun, addGunAsync}
+)
+class App extends React.Component{
+  render(){
+    // num addGun，removeGun，addGunAsync都是connect给的，不需要手动dispatch
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div>
+        <h2>现在有机枪{this.props.num}把</h2>
+        <button onClick={this.props.addGun}>申请武器</button>
+        <button onClick={this.props.removeGun}>上交武器</button>
+        <button onClick={this.props.addGunAsync}>拖两天再给</button>
       </div>
-    );
+    )
   }
 }
-
 export default App;

@@ -4,6 +4,8 @@ import PropTypes from 'prop-types'
 import { addGun, removeGun, addGunAsync } from './index.redux'
 
 // 装饰器模式
+
+
 @connect(
   state=>({ num: state}),
   {addGun, removeGun, addGunAsync}

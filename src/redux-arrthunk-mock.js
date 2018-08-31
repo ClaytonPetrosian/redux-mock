@@ -1,3 +1,5 @@
+//支持dispatch数组的中间件
+
 const arrThunk=({dispatch,getState})=>next=>action=>{
   //如果是数组，遍历执行
   if (Array.isArray(action)) {
